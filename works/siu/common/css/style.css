@@ -1,0 +1,324 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+section, article, aside, hgroup, header, footer, main, nav, figure{
+    display: block;
+}
+li{
+    list-style: none;
+}
+img{
+    border: none;
+    display: block;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+body{
+    font-family: "Roobert","Noto Sans JP","Yu Gothic","YuGothic","Hiragino Kaku Gothic Pro","Meiryo UI","Meiryo","MS PGothic",sans-serif;
+}
+header{
+    width: 100%;
+    min-width: 1000px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+#logo{
+    float: left;
+    width: 260px;
+    height: 85px;
+    margin-top: 20px;
+    margin-left: 34px;
+}
+#logo img{
+    width: 100%;
+}
+header nav{
+    float: right;
+    width: 677px;
+    margin-top: 56px;
+    margin-right: 34px;
+}
+header nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+header nav ul li{
+    display: table;
+}
+header nav ul li a:not(.btn){ /*:notで.btnにだけ黒い下線のアニメーションを効かせない*/
+    font-size: 16px;
+    display: table-cell;
+    vertical-align: bottom;
+    position: relative;
+}
+header nav ul li a::after{
+    position: absolute;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: #000000;
+    bottom: -1px;
+    transform: scale(0,1);
+    transform-origin: left top;
+    transition: transform 0.3s;
+}
+header nav ul li a:hover::after{
+    transform: scale(1,1);
+}
+.btn{
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    width: 115px;
+    padding: 9px;
+    background-color: #00B6AC;
+    border-radius: 30px;
+    color: white;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+.btn:hover{
+    background-color: white;
+    color: #00B6AC;
+    border: 2px solid #00B6AC;
+}
+#mainPhoto{
+    clear: both; /*★あってもなくても変化がみられないが、あったほうがいい？それともmainにかけた方がいい？→なくてOK*/
+    background-image: url(../../common/images/main.jpg);
+    width: 100%;
+    height: 744px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    margin-bottom: 72px;
+}
+#mainPhoto h1 img{
+    position: absolute;
+    width: 506px;
+    height: 92px;
+    top: 22%;
+    left: 56%;
+}
+main h2{
+    text-align: center;
+    margin-bottom: 42px;
+    font-family: Calibri; /*★他にもフォントを指定した方がいい？*/
+    font-weight: bold;
+    font-size: 25px;
+    position: relative;
+}
+main h2::after{
+    position: absolute;
+    content: "";
+    background-color: #00B6AC;
+    width: 45px;
+    height: 3px;
+    bottom: -10px;
+    left: 50%; /*線のヨコ位置*/
+    transform: translateX(-50%); /*線のヨコ位置*/
+}
+#news{
+    margin-bottom: 75px;
+}
+#newsInner{
+    width: 1000px;
+    margin: auto;
+    border-collapse: collapse; /*セルの枠線を重ねる*/
+}
+#newsInner tr:nth-child(1){
+    border-top: solid 1px #ddd;
+}
+#newsInner td{
+    border-bottom: solid 1px #ddd;
+    padding: 20px;
+}
+#newsInner td:nth-child(1){
+    width: 120px;
+    text-align: center;
+}
+.date_style{
+    font-size: 14px;
+}
+#newsInner a{
+    transition: 0.2s;
+}
+#newsInner a:hover{
+    opacity: 0.6;
+}
+#pickup{
+    background-color: #F3F3F3;
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+#pickup ul{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#pickup li{
+    width: 288px;
+}
+.p_style1{
+    font-family: Calibri;
+    font-size: 30px;
+    font-weight: bold;
+}
+.a_style1{
+    transition: 0.3s;
+}
+.a_style1:hover{
+    opacity: 0.7;
+}
+#pickup img{
+    width: 100%;
+    height: 289px;
+    border-radius: 10px;
+}
+.h3_style{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.p_style2{
+    font-size: 14px;
+}
+#more{
+    width: 115px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 73px;
+}
+#fuculty{
+    padding-top: 75px;
+    padding-bottom: 45px;
+}
+#fuculty ul{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#fuculty ul::after{ /*after疑似要素で空のflexアイテムを生成して最後の行を左寄せにする*/
+    content: "";
+    display: block;
+    width: 288px;
+}
+#fuculty li{
+    width: 288px;
+    margin-bottom: 60px;
+}
+.a_style2{
+    display: block;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(0);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+#fuculty img{
+    width: 100%;
+    height: 179px;
+    border-radius: 5px;
+}
+.a_style2:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+}
+footer{
+    background-color: #313636;
+    color: white;
+    font-size: 14px;
+    padding-top: 68px;
+    padding-bottom: 15px;
+}
+#footerInner{
+    margin-left: 50px;
+    margin-right: 50px;
+    overflow: hidden;
+}
+#footerLogo{
+    float: left;
+    width: 260px;
+    height: 85px;
+}
+#footerLogo img{
+    width: 100%;
+}
+#footerRight{
+    float: right;
+}
+#footerRightUpper{
+    display: flex;
+    justify-content: flex-end;
+}
+#footerRightUpper li{
+    margin-left: 30px;
+    width: 49px;
+    height: 49px;
+}
+#footerRightUpper li img{
+    width: 100%;
+}
+
+#footerRightUpper li a:hover{
+    opacity: 0.8;
+}
+#footerRightLower{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 13.6px;
+}
+#footerRightLower li{
+    margin-left: 50px;
+}
+.footerRightText{
+    color: white;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+.footerRightText::after{
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: white;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform 0.3s;
+}
+.footerRightText:hover::after{
+    transform: scale(1, 1);
+}
+#footerOther{
+    clear: both;
+    width: 415px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 87px;
+}
+#footerOther ul{
+    display: flex;
+    justify-content: space-between;
+}
+.footerOtherText{
+    color: white;
+}
+#copyright{
+    text-align: center;
+    padding-top: 30px;
+}
