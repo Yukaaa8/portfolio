@@ -1,0 +1,476 @@
+@charset "utf-8";
+
+/* リセットCSS */
+*{
+    margin: 0;
+    padding: 0;
+}
+section, article, aside, hgroup, header, footer, main, nav, figure{
+    display: block;
+}
+li{
+    list-style: none;
+}
+img{
+    border: none;
+    display: block;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block; /*クリック範囲を画像に一致させる*/
+}
+body{
+    font-family: "Shippori Mincho","Noto Sans JP","Yu Gothic","YuGothic","Hiragino Kaku Gothic Pro","Meiryo UI","Meiryo","MS PGothic",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #575757;
+}
+.h1-font {
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@media screen and (min-width: 768px){
+.sp{
+    display: none;
+}
+.pc{
+    display: block;
+}
+
+/* ヘッダー*/
+header{
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    pointer-events: none; /*HTML要素がマウスやタッチなどの操作に反応するかどうかを決めるCSSのプロパティ*/
+}
+#headerInner{
+    padding-top: 28px;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+.logo{
+    float:left;
+    width: 160px;
+    visibility: hidden; /*★1-1：もともと非表示にしたい*/
+    pointer-events: initial;
+}
+.logo img{
+    width: 100%;
+}
+.logo-fade{
+    visibility: visible; /*★1-2：700pxまでスクロールしたらふわっと表示させたい */
+}
+.btn-rsv{
+    float: right;
+    pointer-events: initial;
+}
+#btn-rsv{
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    width: 115px;
+    padding: 9px;
+    color: white;
+    text-align: center;
+    border: 1px solid;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+#btn-rsv:hover{
+    background-color: white;
+    opacity: 0.7;
+    color: #395246;
+    border: 1px solid #395246;
+}
+#btn-rsv.scroll-btn{
+    border: 1px solid #395246;
+    color: #395246;
+}
+
+/*ナビゲーション*/
+#global-nav{
+    background-color: #395246;
+    position: -webkit-sticky; /*★2：スクロールしたら画面上で固定すると、メニューのリンクが無効になってしまう*/
+    position:         sticky;
+    top: 0;
+    z-index: 900;
+    transition: 0.3s;
+}
+#global-nav ul li a:hover{
+    opacity: 0.7;
+    transition: 0.3s;
+}
+/* スクロールして「scroll-navクラス」がついたときのヘッダーデザイン*/
+#global-nav.scroll-nav {
+    background-color: rgba(255, 255, 255, 0.7); 
+}
+/* 「scroll-navクラス」がヘッダーについたときに、ナビゲーションの文字色を変える */
+#global-nav.scroll-nav ul li a {
+    color: #395246;
+    font-weight: bold;
+}
+#global-nav.scroll-nav ul li a:hover {
+    opacity: 0.7;
+    transition: 0.3s;
+}
+#navInner{
+    width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#navInner ul{
+    display: flex;
+    justify-content: space-between;
+    padding: 46px 0;
+}
+.bg-slider {
+    width: 100vw;
+    height: 100vh;
+    background-position:center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s;
+}
+.bg-slider.is-show{
+    opacity: 1;
+    visibility: visible;
+}
+.h1-font{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);  /*位置を真ん中に調整*/
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    font-size: 4rem;
+    color: #fff;
+    text-align: center;
+    line-height: 70%;
+}
+.h1-style{
+    font-size: 2.2rem;
+}
+
+/*==メイン==*/
+
+/*コンセプト*/
+#concept{
+    background-color: #F9F9F4;
+    padding-bottom: 90px;
+}
+.concept-font{
+    font-size: 1.8rem;
+    color: #D5C987;
+    font-weight: bold;
+    text-align: center;
+    padding: 60px 0;
+}
+#concept p{
+    text-align: center;
+    line-height: 2;
+}
+
+/*メニュー*/
+.menu-h2{
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+    padding-top: 25px;
+}
+.menu-text{
+    font-size: 16px;
+    text-align: center;
+    line-height: 2;
+}
+#underline-food::after{
+    position: absolute;
+    content: "";
+    background-color: #D5C987;
+    width: 72px;
+    height: 2px;
+    bottom: -2px;
+    left: 50%; /*線のヨコ位置*/
+    transform: translateX(-50%); /*線のヨコ位置*/
+}
+#underline-drink::after{
+    position: absolute;
+    content: "";
+    background-color: #D5C987;
+    width: 86px;
+    height: 2px;
+    bottom: -2px;
+    left: 50%; /*線のヨコ位置*/
+    transform: translateX(-50%); /*線のヨコ位置*/
+}
+#underline-dessert::after{
+    position: absolute;
+    content: "";
+    background-color: #D5C987;
+    width: 122px;
+    height: 2px;
+    bottom: -2px;
+    left: 50%; /*線のヨコ位置*/
+    transform: translateX(-50%); /*線のヨコ位置*/
+}
+.btn-arrow{
+    position: relative;
+    width: 196px;
+    text-align: center;
+    border: 1px #395246 solid;
+    padding: 5px;
+    margin-top: 53px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn-more{
+    display: block;
+    width: 100%;
+    color: #395246;
+}
+.btn-arrow::before{
+    content: "";
+	display: block;
+	width: 60px;
+	height: 1px;
+	background: #395246;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: -30px;
+	margin: auto;
+    transition: 0.5s;
+}
+.btn-arrow:hover::before{
+    right: 5px;
+}
+#menu{
+    margin-top: 90px;
+    margin-bottom: 32px;
+}
+#menu section{
+    margin: 30px auto; /*メニューの説明文を中央に寄せる設定*/
+    width: 50%;  /*メニューの説明文領域を画面幅を半分に固定する設定。これをしないとDESSERTのテキストがDRINKの横にくる */
+}
+#menu .container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#menu .container div:not(.btn-arrow) { /*:notで指定しないと、セクションの幅50%の位置になってしまう*/
+    width: 50%;
+    padding-bottom: 100px;
+}
+#menu .container div img {
+    width: 100%;
+    height: auto;
+}
+#menu .container>:nth-child(1) {
+    order: 1;
+}
+#menu .container>:nth-child(2) {
+    order: 2;
+}
+#menu .container>:nth-child(3) {
+    order: 4;
+}
+#menu .container>:nth-child(4) {
+    order: 3;
+}
+#menu .container>:nth-child(5) {
+    order: 5; 
+}
+#menu .container>:nth-child(6) {
+    order: 6; 
+}
+.hide-down {
+    transition: 2s;
+    opacity: 0;
+    transform: translateY(50px);
+}
+.hide-left {
+    transition: 2s 1s;
+    opacity: 0;
+    transform: translateX(-50px);
+}
+.hide-right {
+    transition: 2s 1s;
+    opacity: 0;
+    transform: translateX(50px);
+}
+.show {
+    opacity: 1 !important;
+    transform: translate(0px, 0px) !important;
+}
+
+/*ギャラリー*/
+#gallery{
+    background-color: #F9F9F4;
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+#underline-gallery::after{
+    position: absolute;
+    content: "";
+    background-color: #D5C987;
+    width: 126px;
+    height: 2px;
+    bottom: -2px;
+    left: 50%; /*線のヨコ位置*/
+    transform: translateX(-50%); /*線のヨコ位置*/
+}
+#wrap-gallery{
+    padding-top: 40px;
+}
+#fade-gallery{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.fadein-sub{
+    width: 23%;
+    transition: 0.3s;
+}
+.fadein-sub:hover{
+    opacity: 0.7;
+}
+.fadein-gallery{
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.5s;
+}
+.fadein-gallery.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*アクセス*/
+#access{
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+#underline-access::after{
+    position: absolute;
+    content: "";
+    background-color: #D5C987;
+    width: 106px;
+    height: 2px;
+    bottom: -2px;
+    left: 50%; /*線のヨコ位置*/
+    transform: translateX(-50%); /*線のヨコ位置*/
+}
+#wrap-info{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+.map{
+    display: block;
+    width: 478px;
+    height: 300px;
+    margin-right: 30px;
+}
+.map iframe{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.info{
+    margin-left: 30px;
+    border-top: solid 1px #D5C987;
+    border-bottom: solid 1px #D5C987;   
+}
+.info table{
+    width: 478px;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+.infoInner{
+    height: 100%;
+}
+.info table tr td{
+    border-collapse: collapse;
+}
+.info table tr td:first-child{
+    text-align: right;
+    padding-right: 30px;
+}
+.info table tr td:last-child{
+    text-align: left;
+}
+.info table tr:first-child td{
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.info table tr:nth-child(2) td{
+    padding-bottom: 30px;
+}
+.info table tr:nth-child(2){
+    border-bottom: 1px solid #D5C987;
+}
+.info table tr:nth-child(3) td{
+    padding-top: 30px;
+}
+.info table tr:nth-child(4) td{
+    padding-bottom: 30px;
+}
+.info table tr:nth-child(4){
+    border-bottom: 1px solid #D5C987;
+}
+.info table tr:last-child td{
+    padding-top: 30px;
+}
+
+
+/* フッター */
+footer{
+    background-color: #395246;
+}
+#footer-logo{
+    width: 208px;
+    height: 72px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 70px 0;
+}
+#footer-logo img{
+    width: 100%;
+}
+#footerInner a:hover{
+    opacity: 0.7;
+    transition: 0.3s;
+}
+#footerInner ul{
+    display: flex;
+    justify-content: center;
+}
+#footerInner ul li{
+    width: 40px;
+    height: 40px;
+}
+#footerInner ul li img{
+    width: 100%;
+}
+#footerInner ul li:first-child{
+    margin-right: 40px;
+}
+footer small{
+    display: block;
+    color: #fff;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+}
